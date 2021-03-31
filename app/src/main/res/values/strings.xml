@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Rick&amp;Morty</string>
+
+    //PROFILE STRINGS
+    <string name="namesaved">Mi nombre</string>
+    <string name="usernamesaved">Mi nombre de usuario</string>
+    <string name="descriptsaved">Mi descripción</string>
+    <string name="hintname">Indica tu nombre</string>
+    <string name="hinusername">Indica tu nombre de usuario</string>
+    <string name="hindescript">Indica tu descripción</string>
+    <string name="emptyname">Cuándo añadas tu nombre aparecerá aquí</string>
+    <string name="emptyusernname">Cuándo añadas tu nombre de usuario aparecerá aquí</string>
+    <string name="emptydescript">Cuándo añadas tu descripción aparecerá aquí</string>
+
+</resources>

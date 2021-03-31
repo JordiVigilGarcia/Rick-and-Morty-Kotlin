@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.android.rickmorty.home_screen.ui.ListFragment"
+        android:label="HomeFragment"
+        tools:layout="@layout/list_fragment">
+
+        <action
+            android:id="@+id/action_homeFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.android.rickmorty.profile_screen.ui.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/profile_fragment">
+        <action
+            android:id="@+id/action_profileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.android.rickmorty.profile_screen.edit.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/edit_profile_fragment">
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+</navigation>
