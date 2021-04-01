@@ -9,16 +9,22 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.android.data.models.RickMorty
 import com.android.rickmorty.R
 import com.android.rickmorty.commons.BaseFragment
 import com.android.rickmorty.databinding.ListFragmentBinding
 import com.android.rickmorty.databinding.ProfileFragmentBinding
 import com.android.rickmorty.home_screen.vm.ViewModelCharacters
+import com.android.rickmorty.profile_screen.vm.ViewModelProfile
+import com.google.android.material.snackbar.Snackbar
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ListFragment : BaseFragment() {
+class ListFragment : BaseFragment(), CellClickListener {
     private lateinit var binding: ListFragmentBinding
 
     private lateinit var adapter: CharactersAdapter
+
+    private val presenter: ViewModelProfile by viewModel()
 
     private val viewModel: ViewModelCharacters by lazy {
         ViewModelProvider(this).get(ViewModelCharacters::class.java)
@@ -45,12 +51,17 @@ class ListFragment : BaseFragment() {
     fun initList(){
         viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {
             binding.itemGrid.layoutManager = LinearLayoutManager(activity)
-            adapter = CharactersAdapter(it)
+            adapter = CharactersAdapter(it, this, presenter, this)
             binding.itemGrid.adapter = adapter
         })
 
     }
 
+    override fun onClickListener(rickMorty: RickMorty) {
+        Snackbar.make(binding.constarintlist, "Personaje añadido a tus favoritos", Snackbar.LENGTH_LONG).show()
+        presenter.setFavCharacter(rickMorty.id.toString())
+        adapter.notifyDataSetChanged()
+    }
 
 
 }

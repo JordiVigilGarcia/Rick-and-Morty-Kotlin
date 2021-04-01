@@ -8,4 +8,7 @@ object Constants {
     const val PREF_NAME= "namepref"
     const val PREF_USERNAME = "usernamepref"
     const val PREF_DESCRIP = "descriptionpref"
+
+    //FAVORITE CHARACTER
+    const val CHARACTER_FAV = "favoritecharacter"
 }

@@ -26,26 +26,21 @@ class ViewModelCharacters: ViewModel() {
 
     init {
         coroutineScope.launch {
-            getData(1)
+            getData()
         }
     }
 
-    private suspend fun getData(page: Int) {
+    private suspend fun getData() {
         try {
-            if (page == 1) {
-
-            }
-            if (page <= 34) {
-                val response = RickAndMortyApi.retrofitService.getData(page)
-                if (response.isSuccessful) {
-                    val dataRickAndMorty = response.body()
-                    if (dataRickAndMorty!!.results!!.isNotEmpty()) {
-                        dataAllList.addAll(dataRickAndMorty.results)
-                        _rickAndMortyData.value = dataAllList
-                    }
-                } else {
-
+            val response = RickAndMortyApi.retrofitService.getData()
+            if (response.isSuccessful) {
+                val dataRickAndMorty = response.body()
+                if (dataRickAndMorty!!.results!!.isNotEmpty()) {
+                    dataAllList.addAll(dataRickAndMorty.results)
+                    _rickAndMortyData.value = dataAllList
                 }
+            } else {
+
             }
 
         } catch (e: UnknownHostException) {

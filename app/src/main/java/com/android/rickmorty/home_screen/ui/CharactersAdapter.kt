@@ -1,14 +1,28 @@
 package com.android.rickmorty.home_screen.ui
 
+import android.graphics.Color
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.RecyclerView
 import com.android.data.models.RickMorty
+import com.android.rickmorty.R
 import com.android.rickmorty.databinding.CharacterModelBinding
+import com.android.rickmorty.profile_screen.vm.ViewModelProfile
 import com.bumptech.glide.Glide
 
-class CharactersAdapter(private var mValues: List<RickMorty>?): RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
+
+class CharactersAdapter(private var mValues: List<RickMorty>?,
+                        private val favClick: CellClickListener,
+                        private val presenter: ViewModelProfile,
+                        private val lifecycleOwner: LifecycleOwner
+                        ): RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {
 
     private lateinit var binding: CharacterModelBinding
 
@@ -19,6 +33,14 @@ class CharactersAdapter(private var mValues: List<RickMorty>?): RecyclerView.Ada
 
     override fun onBindViewHolder(holder: CharactersAdapter.ViewHolder, position: Int) {
         mValues?.let {
+
+            presenter.favcharacter.observe(lifecycleOwner, Observer {id ->
+                if (Integer.parseInt(id) == it[position].id){
+                    holder.characterFAV.setColorFilter(Color.parseColor("#42a5f5"))
+                }else{
+                    holder.characterFAV.setColorFilter(Color.parseColor("#808080"))
+                }
+            })
 
             if (it[position].name.toString().isEmpty()){
                 holder.characterNAME.visibility = View.GONE
@@ -41,6 +63,35 @@ class CharactersAdapter(private var mValues: List<RickMorty>?): RecyclerView.Ada
                 holder.characterGENDER.text = it[position].gender
             }
 
+            if (it[position].location.toString().isEmpty()){
+                holder.characterLOCATION.visibility = View.GONE
+            }else{
+                holder.characterLOCATION.visibility = View.VISIBLE
+
+                val string = "Localización: "
+                val string1 = it[position].location.name
+
+                val spannableString = SpannableString(string + string1)
+
+                val foregroundSpan = ForegroundColorSpan(Color.BLACK)
+
+                val backgroundSpan = BackgroundColorSpan(holder.itemView.context.resources.getColor(
+                    R.color.coloripple))
+
+                spannableString.setSpan(foregroundSpan, 0, string.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                spannableString.setSpan(
+                    backgroundSpan,
+                    string.length,
+                    string.length+string1.length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                )
+                holder.characterLOCATION.text = spannableString
+            }
+
+            holder.characterFAV.setOnClickListener { _ ->
+                favClick.onClickListener(it[position])
+            }
+
             Glide.with(holder.itemView.context).load(it[position].image).into(holder.characterIMG)
 
         } ?: clearList()
@@ -55,6 +106,8 @@ class CharactersAdapter(private var mValues: List<RickMorty>?): RecyclerView.Ada
         val characterNAME = binding.textView13
         val characterSPECIES = binding.textView14
         val characterGENDER = binding.textView15
+        val characterLOCATION = binding.textView16
+        val characterFAV = binding.imageView6
     }
     private fun clearList() {
         val emptyList = listOf<RickMorty>()
@@ -62,6 +115,8 @@ class CharactersAdapter(private var mValues: List<RickMorty>?): RecyclerView.Ada
         notifyItemRangeRemoved(0, 0)
     }
 }
+
 interface CellClickListener{
-    fun onCellClickListener(transaction: RickMorty)
+    fun onClickListener(rickMorty: RickMorty)
 }
+

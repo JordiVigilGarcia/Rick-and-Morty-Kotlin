@@ -10,7 +10,21 @@ import com.android.data.remote.RickAndMortyApiService
 class RickMortyRepository(private val context: Context, private val api: RickAndMortyApiService) :
     BaseRepository() {
 
+    fun getFavCharacter(): String {
+        val sharedPref = context.getSharedPreferences(
+            Constants.SP_USER, Context.MODE_PRIVATE
+        )
+        return sharedPref.getString(Constants.CHARACTER_FAV, "") ?: ""
+    }
 
+    fun setFavCharacter(name: String) {
+        val sharedPref =
+            context.getSharedPreferences(Constants.SP_USER, Context.MODE_PRIVATE)
+        with(sharedPref.edit()) {
+            putString(Constants.CHARACTER_FAV, name)
+            commit()
+        }
+    }
 
     fun getName(): String {
         val sharedPref = context.getSharedPreferences(

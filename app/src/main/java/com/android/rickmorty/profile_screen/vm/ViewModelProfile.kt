@@ -21,11 +21,16 @@ class ViewModelProfile(private val repository: RickMortyRepository): BaseViewMod
     val description: LiveData<String>
         get() = _description
 
+    private val _favcharacter = MutableLiveData<String>()
+    val favcharacter: LiveData<String>
+        get() = _favcharacter
+
     init {
         viewModelScope.launch(Dispatchers.IO) {
             _name.postValue(repository.getName())
             _username.postValue(repository.getUsername())
             _description.postValue(repository.getDescription())
+            _favcharacter.postValue(repository.getFavCharacter())
         }
     }
 
@@ -44,6 +49,12 @@ class ViewModelProfile(private val repository: RickMortyRepository): BaseViewMod
     fun setDescription(description: String){
         viewModelScope.launch(Dispatchers.IO){
             repository.setDescription(description)
+        }
+    }
+
+    fun setFavCharacter(favcharacter: String){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.setFavCharacter(favcharacter)
         }
     }
 }
