@@ -4,25 +4,30 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.result.ActivityResultCallback
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.ActivityResultRegistry
-import androidx.activity.result.contract.ActivityResultContract
-import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.android.rickmorty.R
 import com.android.rickmorty.commons.BaseFragment
 import com.android.rickmorty.databinding.ListFragmentBinding
+import com.android.rickmorty.databinding.ProfileFragmentBinding
+import com.android.rickmorty.home_screen.vm.ViewModelCharacters
 
 class ListFragment : BaseFragment() {
+    private lateinit var binding: ListFragmentBinding
 
-    private var _binding: ListFragmentBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var adapter: CharactersAdapter
+
+    private val viewModel: ViewModelCharacters by lazy {
+        ViewModelProvider(this).get(ViewModelCharacters::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        _binding = ListFragmentBinding.inflate(inflater, container, false)
-        val view = binding.root
-        return view
+        binding =  ListFragmentBinding.inflate(inflater)
+        initList()
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +39,18 @@ class ListFragment : BaseFragment() {
             }
         })
 
+        initList()
+    }
 
+    fun initList(){
+        viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {
+            binding.itemGrid.layoutManager = LinearLayoutManager(activity)
+            adapter = CharactersAdapter(it)
+            binding.itemGrid.adapter = adapter
+        })
 
     }
+
+
 
 }

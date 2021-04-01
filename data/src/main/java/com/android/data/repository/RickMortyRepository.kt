@@ -3,11 +3,14 @@ package com.android.data.repository
 import android.content.Context
 import com.android.data.commons.BaseRepository
 import com.android.data.commons.Constants
-import com.android.data.remote.RickMortyAPI
+import com.android.data.remote.ResultHandler
+import com.android.data.remote.RickAndMortyApiService
 
 
-class RickMortyRepository(private val context: Context, private val api: RickMortyAPI) :
+class RickMortyRepository(private val context: Context, private val api: RickAndMortyApiService) :
     BaseRepository() {
+
+
 
     fun getName(): String {
         val sharedPref = context.getSharedPreferences(

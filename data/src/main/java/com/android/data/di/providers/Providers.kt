@@ -2,6 +2,7 @@ package com.android.data.di.providers
 
 import android.app.Application
 import com.android.data.BuildConfig
+import com.android.data.remote.RickAndMortyApiService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
@@ -10,7 +11,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-import com.android.data.remote.RickMortyAPI
 import com.android.data.remote.interceptors.MockInterceptor
 import com.android.data.repository.RickMortyRepository
 
@@ -46,8 +46,8 @@ fun provideRetrofit(httpClient: OkHttpClient, gson: Gson): Retrofit = Retrofit.B
     .addConverterFactory(GsonConverterFactory.create(gson))
     .build()
 
-fun provideTransactionApi (retrofit: Retrofit): RickMortyAPI = retrofit
-    .create(RickMortyAPI::class.java)
+fun provideTransactionApi (retrofit: Retrofit): RickAndMortyApiService = retrofit
+    .create(RickAndMortyApiService::class.java)
 
 
-fun provideTransactionRepository(application: Application, retrofit: RickMortyAPI): RickMortyRepository = RickMortyRepository(application, retrofit)
+fun provideTransactionRepository(application: Application, retrofit: RickAndMortyApiService): RickMortyRepository = RickMortyRepository(application, retrofit)
