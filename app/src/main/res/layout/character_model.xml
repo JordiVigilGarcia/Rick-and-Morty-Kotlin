@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:padding="10dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/characterIMG"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        tools:layout_editor_absoluteX="10dp"
+        tools:layout_editor_absoluteY="10dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_toRightOf="@id/characterIMG"
+        android:orientation="vertical"
+        app:layout_constraintStart_toEndOf="@id/characterIMG"
+        tools:layout_editor_absoluteY="10dp">
+
+        <TextView
+            android:id="@+id/textView13"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/robotomedium"
+            android:text="TextView"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/textView14"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/robotoregular"
+            android:text="TextView"
+            android:textColor="@color/color2"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@color/coloripple"
+            android:fontFamily="@font/robotomedium"
+            android:text="TextView"
+            android:textColor="@color/color1"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+</RelativeLayout>
