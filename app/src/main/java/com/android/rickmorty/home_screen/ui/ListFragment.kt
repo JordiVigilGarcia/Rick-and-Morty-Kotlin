@@ -16,6 +16,7 @@ import com.android.rickmorty.databinding.ListFragmentBinding
 import com.android.rickmorty.databinding.ProfileFragmentBinding
 import com.android.rickmorty.home_screen.vm.ViewModelCharacters
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
+import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -46,6 +47,8 @@ class ListFragment : BaseFragment(), CellClickListener {
         })
 
         initList()
+
+        initFavIMG()
     }
 
     fun initList(){
@@ -55,6 +58,22 @@ class ListFragment : BaseFragment(), CellClickListener {
             binding.itemGrid.adapter = adapter
         })
 
+    }
+
+    fun initFavIMG(){
+        presenter.favcharacter.observe(viewLifecycleOwner, Observer {pos->
+            if (pos.toString().equals("-1")){
+                binding.userclick.setBackgroundResource(R.mipmap.ic_launcher)
+            }else {
+                viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {
+                    activity?.let { it1 ->
+                        Glide.with(it1)
+                            .load(it[pos].image)
+                            .into(binding.userclick)
+                    }
+                })
+            }
+        })
     }
 
     override fun onClickListener(rickMorty: RickMorty, pos: Int) {

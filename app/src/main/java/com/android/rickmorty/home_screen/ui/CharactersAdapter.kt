@@ -1,5 +1,6 @@
 package com.android.rickmorty.home_screen.ui
 
+import android.annotation.SuppressLint
 import android.graphics.Color
 import android.text.Spannable
 import android.text.SpannableString
@@ -16,6 +17,7 @@ import com.android.rickmorty.R
 import com.android.rickmorty.databinding.CharacterModelBinding
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
 import com.bumptech.glide.Glide
+import com.bumptech.glide.request.RequestOptions
 
 
 class CharactersAdapter(private var mValues: List<RickMorty>?,
@@ -36,7 +38,7 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
 
             presenter.favcharacter.observe(lifecycleOwner, Observer {id ->
                 if (id == holder.adapterPosition){
-                    holder.characterFAV.setColorFilter(Color.parseColor("#42a5f5"))
+                    holder.characterFAV.setColorFilter(Color.parseColor("#ffd54f"))
                 }else{
                     holder.characterFAV.setColorFilter(Color.parseColor("#808080"))
                 }
@@ -92,7 +94,9 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
                 favClick.onClickListener(it[position], holder.adapterPosition)
             }
 
-            Glide.with(holder.itemView.context).load(it[position].image).into(holder.characterIMG)
+            Glide.with(holder.itemView.context)
+                .load(it[position].image)
+                .into(holder.characterIMG)
 
         } ?: clearList()
     }

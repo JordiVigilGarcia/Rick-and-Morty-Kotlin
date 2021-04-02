@@ -1,6 +1,12 @@
 package com.android.rickmorty.profile_screen.ui
 
+import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.BackgroundColorSpan
+import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +20,10 @@ import com.android.rickmorty.databinding.ListFragmentBinding
 import com.android.rickmorty.databinding.ProfileFragmentBinding
 import com.android.rickmorty.home_screen.vm.ViewModelCharacters
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.BaseRequestOptions
+import com.bumptech.glide.request.RequestOptions
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -35,6 +45,7 @@ class ProfileFragment : BaseFragment() {
         return view
     }
 
+    @SuppressLint("ResourceType")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -78,11 +89,52 @@ class ProfileFragment : BaseFragment() {
         })
 
         presenter.favcharacter.observe(viewLifecycleOwner, Observer {
-            viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {rickmorty ->
-                binding.textView20.text = rickmorty[it].name
-            })
+
+            if (it.toString().equals("-1")){
+                binding.linearFAV.visibility = View.GONE
+            }else {
+                binding.linearFAV.visibility = View.VISIBLE
+                viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer { rickmorty ->
+                    binding.textView20.text = rickmorty[it].name
+                    binding.textView21.text = rickmorty[it].species
+                    binding.textView22.text = rickmorty[it].gender
+
+                    val string = "Localización: "
+                    val string1 = rickmorty[it].location.name
+
+                    val spannableString = SpannableString(string + string1)
+
+                    val foregroundSpan = ForegroundColorSpan(Color.BLACK)
+
+                    val backgroundSpan = BackgroundColorSpan(resources.getColor(
+                        R.color.coloripple))
+
+                    spannableString.setSpan(foregroundSpan, 0, string.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    spannableString.setSpan(
+                        backgroundSpan,
+                        string.length,
+                        string.length+string1.length,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                    binding.textView23.text = spannableString
+
+                    activity?.let { it1 ->
+                        Glide.with(it1).load(rickmorty[it].image)
+                            .into(binding.characterIMG2)
+                    }
+
+                })
+            }
         })
 
+        //BINDING ONCLICK FOR REMOVE FAVORITE CHARACTER
+        binding.imageView7.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                presenter.setFavCharacter(-1)
+                Snackbar.make(binding.constraintProfile, "Personaje retirado como favorito", Snackbar.LENGTH_LONG)
+                    .show()
+            }
+        })
 
 
     }
