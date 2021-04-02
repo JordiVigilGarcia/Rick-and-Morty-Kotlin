@@ -35,7 +35,7 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
         mValues?.let {
 
             presenter.favcharacter.observe(lifecycleOwner, Observer {id ->
-                if (Integer.parseInt(id) == it[position].id){
+                if (id == holder.adapterPosition){
                     holder.characterFAV.setColorFilter(Color.parseColor("#42a5f5"))
                 }else{
                     holder.characterFAV.setColorFilter(Color.parseColor("#808080"))
@@ -89,7 +89,7 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
             }
 
             holder.characterFAV.setOnClickListener { _ ->
-                favClick.onClickListener(it[position])
+                favClick.onClickListener(it[position], holder.adapterPosition)
             }
 
             Glide.with(holder.itemView.context).load(it[position].image).into(holder.characterIMG)
@@ -117,6 +117,6 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
 }
 
 interface CellClickListener{
-    fun onClickListener(rickMorty: RickMorty)
+    fun onClickListener(rickMorty: RickMorty, pos: Int)
 }
 

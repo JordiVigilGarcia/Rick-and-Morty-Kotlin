@@ -57,9 +57,9 @@ class ListFragment : BaseFragment(), CellClickListener {
 
     }
 
-    override fun onClickListener(rickMorty: RickMorty) {
+    override fun onClickListener(rickMorty: RickMorty, pos: Int) {
         Snackbar.make(binding.constarintlist, "Personaje añadido a tus favoritos", Snackbar.LENGTH_LONG).show()
-        presenter.setFavCharacter(rickMorty.id.toString())
+        presenter.setFavCharacter(pos)
         adapter.notifyDataSetChanged()
     }
 

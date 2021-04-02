@@ -3,6 +3,7 @@ package com.android.data.repository
 import android.content.Context
 import com.android.data.commons.BaseRepository
 import com.android.data.commons.Constants
+import com.android.data.models.RickMorty
 import com.android.data.remote.ResultHandler
 import com.android.data.remote.RickAndMortyApiService
 
@@ -10,18 +11,18 @@ import com.android.data.remote.RickAndMortyApiService
 class RickMortyRepository(private val context: Context, private val api: RickAndMortyApiService) :
     BaseRepository() {
 
-    fun getFavCharacter(): String {
+    fun getFavCharacter(): Int {
         val sharedPref = context.getSharedPreferences(
             Constants.SP_USER, Context.MODE_PRIVATE
         )
-        return sharedPref.getString(Constants.CHARACTER_FAV, "") ?: ""
+        return sharedPref.getInt(Constants.CHARACTER_FAV, -1) ?: -1
     }
 
-    fun setFavCharacter(name: String) {
+    fun setFavCharacter(pos: Int) {
         val sharedPref =
             context.getSharedPreferences(Constants.SP_USER, Context.MODE_PRIVATE)
         with(sharedPref.edit()) {
-            putString(Constants.CHARACTER_FAV, name)
+            putInt(Constants.CHARACTER_FAV, pos)
             commit()
         }
     }

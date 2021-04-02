@@ -12,6 +12,7 @@ import com.android.rickmorty.R
 import com.android.rickmorty.commons.BaseFragment
 import com.android.rickmorty.databinding.ListFragmentBinding
 import com.android.rickmorty.databinding.ProfileFragmentBinding
+import com.android.rickmorty.home_screen.vm.ViewModelCharacters
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -23,6 +24,10 @@ class ProfileFragment : BaseFragment() {
 
     private var _binding: ProfileFragmentBinding? = null
     private val binding get() = _binding!!
+
+    private val viewModel: ViewModelCharacters by lazy {
+        ViewModelProvider(this).get(ViewModelCharacters::class.java)
+    }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = ProfileFragmentBinding.inflate(inflater, container, false)
@@ -71,6 +76,14 @@ class ProfileFragment : BaseFragment() {
                 binding.textView12.text = description
             }
         })
+
+        presenter.favcharacter.observe(viewLifecycleOwner, Observer {
+            viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {rickmorty ->
+                binding.textView20.text = rickmorty[it].name
+            })
+        })
+
+
 
     }
 
