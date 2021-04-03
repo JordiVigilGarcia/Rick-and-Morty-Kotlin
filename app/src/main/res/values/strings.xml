@@ -11,5 +11,6 @@
     <string name="emptyname">Cuándo añadas tu nombre aparecerá aquí</string>
     <string name="emptyusernname">Cuándo añadas tu nombre de usuario aparecerá aquí</string>
     <string name="emptydescript">Cuándo añadas tu descripción aparecerá aquí</string>
+    <string name="emptyfavorite">Cuándo añadas un personaje favorito aparecerá aquí</string>
 
 </resources>

@@ -10,21 +10,17 @@ import android.text.style.ForegroundColorSpan
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.compose.ui.viewinterop.viewModel
+import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.android.rickmorty.R
 import com.android.rickmorty.commons.BaseFragment
-import com.android.rickmorty.databinding.ListFragmentBinding
 import com.android.rickmorty.databinding.ProfileFragmentBinding
 import com.android.rickmorty.home_screen.vm.ViewModelCharacters
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.BaseRequestOptions
-import com.bumptech.glide.request.RequestOptions
 import com.google.android.material.snackbar.Snackbar
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -138,7 +134,5 @@ class ProfileFragment : BaseFragment() {
 
 
     }
-
-
 
 }

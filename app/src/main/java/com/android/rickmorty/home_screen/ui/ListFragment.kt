@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -46,6 +47,12 @@ class ListFragment : BaseFragment(), CellClickListener {
             }
         })
 
+        binding.imageView.setOnClickListener(object : View.OnClickListener{
+            override fun onClick(p0: View?) {
+                findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
+            }
+        })
+
         initList()
 
         initFavIMG()
@@ -57,6 +64,9 @@ class ListFragment : BaseFragment(), CellClickListener {
             adapter = CharactersAdapter(it, this, presenter, this)
             binding.itemGrid.adapter = adapter
         })
+
+        //OnClickListener Item
+
 
     }
 

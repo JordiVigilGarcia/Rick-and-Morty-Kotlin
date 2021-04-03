@@ -94,6 +94,10 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
                 favClick.onClickListener(it[position], holder.adapterPosition)
             }
 
+            holder.itemView.setOnClickListener { _ ->
+                favClick.onDetailClickListener(it[position])
+            }
+
             Glide.with(holder.itemView.context)
                 .load(it[position].image)
                 .into(holder.characterIMG)
@@ -122,5 +126,8 @@ class CharactersAdapter(private var mValues: List<RickMorty>?,
 
 interface CellClickListener{
     fun onClickListener(rickMorty: RickMorty, pos: Int)
+    fun onDetailClickListener(rickMorty: RickMorty)
 }
+
+
 
