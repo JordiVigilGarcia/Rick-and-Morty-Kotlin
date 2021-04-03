@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -15,10 +16,12 @@ import com.android.rickmorty.R
 import com.android.rickmorty.commons.BaseFragment
 import com.android.rickmorty.databinding.ListFragmentBinding
 import com.android.rickmorty.databinding.ProfileFragmentBinding
+import com.android.rickmorty.detail_screen.vm.ViewModelShared
 import com.android.rickmorty.home_screen.vm.ViewModelCharacters
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
 import com.bumptech.glide.Glide
 import com.google.android.material.snackbar.Snackbar
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class ListFragment : BaseFragment(), CellClickListener {
@@ -31,6 +34,8 @@ class ListFragment : BaseFragment(), CellClickListener {
     private val viewModel: ViewModelCharacters by lazy {
         ViewModelProvider(this).get(ViewModelCharacters::class.java)
     }
+
+    private val sharedModel: ViewModelShared by sharedViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding =  ListFragmentBinding.inflate(inflater)
@@ -61,7 +66,7 @@ class ListFragment : BaseFragment(), CellClickListener {
     fun initList(){
         viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {
             binding.itemGrid.layoutManager = LinearLayoutManager(activity)
-            adapter = CharactersAdapter(it, this, presenter, this)
+            adapter = CharactersAdapter(it, this, this, presenter, this)
             binding.itemGrid.adapter = adapter
         })
 
@@ -90,6 +95,12 @@ class ListFragment : BaseFragment(), CellClickListener {
         Snackbar.make(binding.constarintlist, "Personaje añadido a tus favoritos", Snackbar.LENGTH_LONG).show()
         presenter.setFavCharacter(pos)
         adapter.notifyDataSetChanged()
+    }
+
+    override fun onDetailClickListener(rickMorty: RickMorty) {
+        Toast.makeText(context, "Has pulsado en " + rickMorty.name, Toast.LENGTH_LONG).show()
+        sharedModel.setCharacter(rickMorty)
+        findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
     }
 
 

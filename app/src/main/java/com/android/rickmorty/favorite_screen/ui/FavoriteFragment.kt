@@ -51,17 +51,37 @@ class FavoriteFragment: BaseFragment() {
                 binding.textView18.text = context?.resources?.getString(R.string.emptyfavorite)
             }else{
                 viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {rickmorty ->
-                    binding.textView18.text = rickmorty[it].name
-                    binding.textView27.text = rickmorty[it].name + " · " + rickmorty[it].location.name
-                    binding.textView28.text = rickmorty[it].name
-                    binding.textView30.text = "Aquí se hace un recuento de todos los episodios que sale " + rickmorty[it].name
-                    binding.textView31.text = "Género: " + rickmorty[it].gender
-                    binding.textView32.text = "Estado: " + rickmorty[it].status
-                    binding.textView33.text = rickmorty[it].episode.size.toString()
 
-                    activity?.let {it1 ->
-                        Glide.with(it1).load(rickmorty[it].image).into(binding.ivRICK)
+                    binding.textView27.text = rickmorty[it].name + " · " + rickmorty[it].location.name
+
+                    binding.textView28.text = rickmorty[it].name
+
+                    binding.textView18.text = rickmorty[it].name
+
+                    activity?.let {act ->
+                        Glide.with(act).load(rickmorty[it].image).into(binding.ivRICK)
                     }
+
+                    binding.textView30.text = "Aquí se hace un recuento de todos los episodios que sale " + rickmorty[it].name
+
+                    binding.textView31.text = rickmorty[it].episode.size.toString()
+
+                    binding.textView33.text = "Aquí aparece la última ubicación de " + rickmorty[it].name
+
+                    binding.textView38.text = rickmorty[it].location.name
+
+                    binding.textView44.text = "Aquí aparece el tipo de especie de " + rickmorty[it].name
+
+                    binding.textView48.text = rickmorty[it].species
+
+                    binding.textView59.text = "Aqui aparece el género de " + rickmorty[it].name
+
+                    binding.textView60.text = rickmorty[it].gender
+
+                    binding.textView62.text = "Aquí aparece el estado de " + rickmorty[it].name
+
+                    binding.textView63.text = rickmorty[it].status
+
 
                 })
             }

@@ -22,6 +22,7 @@ import com.bumptech.glide.request.RequestOptions
 
 class CharactersAdapter(private var mValues: List<RickMorty>?,
                         private val favClick: CellClickListener,
+                        private val detailClick: CellClickListener,
                         private val presenter: ViewModelProfile,
                         private val lifecycleOwner: LifecycleOwner
                         ): RecyclerView.Adapter<CharactersAdapter.ViewHolder>() {

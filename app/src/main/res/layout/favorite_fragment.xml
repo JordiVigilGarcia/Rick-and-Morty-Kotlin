@@ -52,7 +52,8 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/optionsfavorite">
@@ -97,10 +98,10 @@
                 android:background="@color/md_grey_100" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:layout_gravity="center_horizontal"
+                android:id="@+id/ivRICK"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:id="@+id/ivRICK"/>
+                android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:id="@+id/textView28"
@@ -130,7 +131,7 @@
                 android:fontFamily="@font/robotoregular" />
 
             <TextView
-                android:id="@+id/textView33"
+                android:id="@+id/textView31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -139,22 +140,109 @@
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/textView31"
-                android:layout_width="match_parent"
+                android:id="@+id/textView32"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:background="@color/coloripple"
+                android:fontFamily="@font/robotomedium"
+                android:text="Localización"
+                android:textColor="@color/color1" />
+
+            <TextView
+                android:id="@+id/textView33"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoregular" />
+
+            <TextView
+                android:id="@+id/textView38"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
 
             <TextView
-                android:id="@+id/textView32"
-                android:layout_width="match_parent"
+                android:id="@+id/textView43"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:background="@color/coloripple"
+                android:fontFamily="@font/robotomedium"
+                android:text="Especie"
+                android:textColor="@color/color1" />
+
+            <TextView
+                android:id="@+id/textView44"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoregular" />
+
+            <TextView
+                android:id="@+id/textView48"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView49"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/coloripple"
+                android:fontFamily="@font/robotomedium"
+                android:text="Género"
+                android:textColor="@color/color1" />
+
+            <TextView
+                android:id="@+id/textView59"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoregular" />
+
+            <TextView
+                android:id="@+id/textView60"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/textView61"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="@color/coloripple"
+                android:fontFamily="@font/robotomedium"
+                android:text="Estado"
+                android:textColor="@color/color1" />
+
+            <TextView
+                android:id="@+id/textView62"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoregular" />
+
+            <TextView
+                android:id="@+id/textView63"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/robotoregular"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
         </LinearLayout>
     </ScrollView>
 
