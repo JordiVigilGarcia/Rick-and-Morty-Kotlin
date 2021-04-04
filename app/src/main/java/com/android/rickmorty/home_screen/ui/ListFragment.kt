@@ -46,17 +46,23 @@ class ListFragment : BaseFragment(), CellClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Open ProfileFragment.kt
+
         binding.userclick.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 findNavController().navigate(R.id.action_homeFragment_to_profileFragment)
             }
         })
 
+        //Open FavoriteFragment.kt
+
         binding.imageView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 findNavController().navigate(R.id.action_homeFragment_to_favoriteFragment)
             }
         })
+
+        //Check if API results is loading or not
 
         viewModel.isLoading.observe(viewLifecycleOwner, Observer {
             if (it){
@@ -66,16 +72,20 @@ class ListFragment : BaseFragment(), CellClickListener {
             }
         })
 
+        //Retrieve characters List on recyclerView
+
         initList()
+
+        //Retrieve favorite character and put the character image on CircleImageView
 
         initFavIMG()
     }
 
     fun initList(){
-        viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {
-            binding.itemGrid.layoutManager = LinearLayoutManager(activity)
+        viewModel.rickMortyResults.observe(viewLifecycleOwner, Observer {
+            binding.recyclerViewList.layoutManager = LinearLayoutManager(activity)
             adapter = CharactersAdapter(it, this, this, presenter, this)
-            binding.itemGrid.adapter = adapter
+            binding.recyclerViewList.adapter = adapter
         })
 
     }
@@ -85,7 +95,7 @@ class ListFragment : BaseFragment(), CellClickListener {
             if (pos.toString().equals("-1")){
                 binding.userclick.setBackgroundResource(R.mipmap.ic_launcher)
             }else {
-                viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {
+                viewModel.rickMortyResults.observe(viewLifecycleOwner, Observer {
                     activity?.let { it1 ->
                         Glide.with(it1)
                             .load(it[pos].image)
@@ -96,11 +106,15 @@ class ListFragment : BaseFragment(), CellClickListener {
         })
     }
 
+    //This is onclicklistener of add to favorite
+
     override fun onClickListener(rickMorty: RickMorty, pos: Int) {
         Snackbar.make(binding.constarintlist, "Personaje añadido a tus favoritos", Snackbar.LENGTH_LONG).show()
         presenter.setFavCharacter(pos)
         adapter.notifyDataSetChanged()
     }
+
+    //This is the onclicklistener of open character details
 
     override fun onDetailClickListener(rickMorty: RickMorty) {
         Toast.makeText(context, "Has pulsado en " + rickMorty.name, Toast.LENGTH_LONG).show()

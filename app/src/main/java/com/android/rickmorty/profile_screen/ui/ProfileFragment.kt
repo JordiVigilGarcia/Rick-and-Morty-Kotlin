@@ -45,11 +45,15 @@ class ProfileFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //This is for close ProfileFragment.kt
+
         binding.imageView3.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 findNavController().navigate(R.id.action_profileFragment_to_homeFragment)
             }
         })
+
+        //This is for open EditFragment.kt
 
         binding.imageView4.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
@@ -57,8 +61,9 @@ class ProfileFragment : BaseFragment() {
             }
         })
 
-        presenter.name.observe(viewLifecycleOwner, Observer {
+        //Check if name exists
 
+        presenter.name.observe(viewLifecycleOwner, Observer {
                 if (it.isEmpty()){
                     binding.textView8.text = resources.getString(R.string.emptyname)
                 }else{
@@ -66,6 +71,8 @@ class ProfileFragment : BaseFragment() {
                 }
 
         })
+
+        //Check if username exists
 
         presenter.username.observe(viewLifecycleOwner, Observer { username ->
                 if (username.isEmpty()){
@@ -76,6 +83,8 @@ class ProfileFragment : BaseFragment() {
 
         })
 
+        //Check if description exists
+
         presenter.description.observe(viewLifecycleOwner, Observer { description ->
             if (description.isEmpty()){
                 binding.textView12.text = getString(R.string.emptydescript)
@@ -84,13 +93,15 @@ class ProfileFragment : BaseFragment() {
             }
         })
 
+        //This is for retrieve favorite character
+
         presenter.favcharacter.observe(viewLifecycleOwner, Observer {
 
             if (it.toString().equals("-1")){
                 binding.linearFAV.visibility = View.GONE
             }else {
                 binding.linearFAV.visibility = View.VISIBLE
-                viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer { rickmorty ->
+                viewModel.rickMortyResults.observe(viewLifecycleOwner, Observer { rickmorty ->
                     binding.textView20.text = rickmorty[it].name
                     binding.textView21.text = rickmorty[it].species
                     binding.textView22.text = rickmorty[it].gender
@@ -128,7 +139,7 @@ class ProfileFragment : BaseFragment() {
             }
         })
 
-        //BINDING ONCLICK FOR REMOVE FAVORITE CHARACTER
+        //BINDING ONCLICK FOR REMOVE FAVORITE CHARACTER - Remove character of favorite
         binding.imageView7.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 presenter.setFavCharacter(-1)

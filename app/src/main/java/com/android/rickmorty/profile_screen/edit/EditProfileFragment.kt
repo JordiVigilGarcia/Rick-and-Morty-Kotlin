@@ -29,11 +29,15 @@ class EditProfileFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //This is for close fragment
+
         binding.imageView2.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 findNavController().navigate(R.id.action_editProfileFragment_to_profileFragment)
             }
         })
+
+        //Check if name exists
 
         presenter.name.observe(viewLifecycleOwner, Observer {
             if (it.isEmpty()){
@@ -43,6 +47,8 @@ class EditProfileFragment : BaseFragment() {
             }
         })
 
+        //Check if username exists
+
         presenter.username.observe(viewLifecycleOwner, Observer {
             if (it.isEmpty()){
                 binding.editTextTextPersonName2.setHint(getString(R.string.hinusername))
@@ -51,6 +57,8 @@ class EditProfileFragment : BaseFragment() {
             }
         })
 
+        //Check if description exists
+
         presenter.description.observe(viewLifecycleOwner, Observer {
             if (it.isEmpty()){
                 binding.editTextTextPersonName3.setHint(getString(R.string.hindescript))
@@ -58,6 +66,8 @@ class EditProfileFragment : BaseFragment() {
                 binding.editTextTextPersonName3.setText(it)
             }
         })
+
+        //OnClick for create user on Rick&Morty App
 
         binding.imageView5.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {

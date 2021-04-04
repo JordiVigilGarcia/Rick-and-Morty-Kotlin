@@ -18,6 +18,8 @@ class SplashScreen : BaseActivity() {
         _binding = SplashScreenBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        //Open HomeActivity with navigation after 2000 ms
+
         object: Thread(){
             override fun run(){
                 try{

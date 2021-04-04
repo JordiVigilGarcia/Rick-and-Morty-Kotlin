@@ -34,11 +34,15 @@ class DetailFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Finish Fragment
+
         binding.imageView9.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 findNavController().navigate(R.id.action_detailFragment_to_homeFragment)
             }
         })
+
+        //Retrieve Shared Character
 
         val sharedCharacter = viewModel.shared.value
         sharedCharacter?.let {rickmorty ->

@@ -36,11 +36,15 @@ class FavoriteFragment: BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //Finish Fragment
+
         binding.imageView8.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 findNavController().navigate(R.id.action_favoriteFragment_to_homeFragment)
             }
         })
+
+        //Retrieve favorite character
 
         initFav()
     }
@@ -50,7 +54,7 @@ class FavoriteFragment: BaseFragment() {
             if (it.toString().equals("-1")){
                 binding.textView18.text = context?.resources?.getString(R.string.emptyfavorite)
             }else{
-                viewModel.rickAndMortyData.observe(viewLifecycleOwner, Observer {rickmorty ->
+                viewModel.rickMortyResults.observe(viewLifecycleOwner, Observer {rickmorty ->
 
                     binding.textView27.text = rickmorty[it].name + " · " + rickmorty[it].location.name
 
