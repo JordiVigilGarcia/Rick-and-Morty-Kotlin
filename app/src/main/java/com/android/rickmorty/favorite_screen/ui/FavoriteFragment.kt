@@ -62,23 +62,23 @@ class FavoriteFragment: BaseFragment() {
                         Glide.with(act).load(rickmorty[it].image).into(binding.ivRICK)
                     }
 
-                    binding.textView30.text = "Aquí se hace un recuento de todos los episodios que sale " + rickmorty[it].name
+                    binding.textView30.text = context?.resources?.getString(R.string.episodedescript) + rickmorty[it].name
 
                     binding.textView31.text = rickmorty[it].episode.size.toString()
 
-                    binding.textView33.text = "Aquí aparece la última ubicación de " + rickmorty[it].name
+                    binding.textView33.text = context?.resources?.getString(R.string.ubicationstring) + rickmorty[it].name
 
                     binding.textView38.text = rickmorty[it].location.name
 
-                    binding.textView44.text = "Aquí aparece el tipo de especie de " + rickmorty[it].name
+                    binding.textView44.text = context?.resources?.getString(R.string.spicedescript) + rickmorty[it].name
 
                     binding.textView48.text = rickmorty[it].species
 
-                    binding.textView59.text = "Aqui aparece el género de " + rickmorty[it].name
+                    binding.textView59.text = context?.resources?.getString(R.string.genderdescript) + rickmorty[it].name
 
                     binding.textView60.text = rickmorty[it].gender
 
-                    binding.textView62.text = "Aquí aparece el estado de " + rickmorty[it].name
+                    binding.textView62.text = context?.resources?.getString(R.string.statedescript)+ rickmorty[it].name
 
                     binding.textView63.text = rickmorty[it].status
 

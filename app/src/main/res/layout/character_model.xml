@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white"
-    android:padding="10dp">
+    android:foreground="?attr/selectableItemBackgroundBorderless"
+    android:padding="@dimen/modelmargin">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/characterIMG"
-        android:layout_width="85dp"
-        android:layout_height="85dp"
+        android:layout_width="@dimen/imagesize"
+        android:layout_height="@dimen/imagesize"
         tools:layout_editor_absoluteX="10dp"
         tools:layout_editor_absoluteY="10dp" />
 
@@ -18,7 +19,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="@dimen/modelmargin"
         android:layout_toRightOf="@id/characterIMG"
         android:orientation="vertical"
         app:layout_constraintStart_toEndOf="@id/characterIMG"
@@ -36,14 +37,13 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="1"
                 android:fontFamily="@font/robotomedium"
-                android:text="TextView"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/namesize" />
 
             <ImageView
                 android:id="@+id/imageView6"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="@dimen/favsize"
+                android:layout_height="@dimen/favsize"
                 android:scaleType="centerInside"
                 app:srcCompat="@drawable/favoriteicn" />
         </LinearLayout>
@@ -53,9 +53,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/robotoregular"
-            android:text="TextView"
-            android:textColor="@color/color2"
-            android:textSize="14sp" />
+            android:textColor="@color/color2" />
 
         <TextView
             android:id="@+id/textView15"
@@ -63,20 +61,16 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/robotomedium"
-            android:text="TextView"
-            android:textColor="@color/color1"
-            android:textSize="14sp" />
+            android:textColor="@color/color1" />
 
         <TextView
             android:id="@+id/textView16"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/modelmargin"
             android:fontFamily="@font/robotomedium"
-            android:lineSpacingExtra="5dp"
-            android:text="TextView"
-            android:textColor="@color/color1"
-            android:textSize="14sp" />
+            android:lineSpacingExtra="@dimen/linespace"
+            android:textColor="@color/color1" />
     </LinearLayout>
 
 </RelativeLayout>

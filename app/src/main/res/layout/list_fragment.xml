@@ -6,10 +6,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/item_grid"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="@dimen/recyclerViewMesures"
+        android:layout_height="@dimen/recyclerViewMesures"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -40,34 +50,33 @@
                 android:layout_height="wrap_content"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Personajes Rick and Morty"
+                android:text="@string/personajerickandmorty"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
                 android:fontFamily="@font/robotomedium"
-                android:text="Rick and Morty 20 characters"
+                android:text="@string/titlelist"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/listtitle" />
         </LinearLayout>
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/userclick"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/listiconsize"
+            android:layout_height="@dimen/listiconsize"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/listiconsize"
+            android:layout_height="@dimen/listiconsize"
             android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
+            android:layout_marginEnd="@dimen/marginicons"
+            android:layout_marginRight="@dimen/marginicons"
             android:layout_toLeftOf="@id/userclick"
             android:scaleType="centerInside"
             android:src="@drawable/favoriteicn"

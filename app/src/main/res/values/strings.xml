@@ -13,4 +13,44 @@
     <string name="emptydescript">Cuándo añadas tu descripción aparecerá aquí</string>
     <string name="emptyfavorite">Cuándo añadas un personaje favorito aparecerá aquí</string>
 
+    //ListFragment.kt
+    <string name="personajerickandmorty">Personajes Rick and Morty</string>
+    <string name="titlelist">Rick and Morty 20 characters</string>
+
+    //ProfileFragment.kt
+    <string name="titleprofile">Mi perfil</string>
+    <string name="favcharacter">Personaje favorito</string>
+    <string name="favdescript">Aquí puedes ver tu personaje favorito de la gran serie Rick and Morty.</string>
+    <string name="location">Localización: </string>
+    <string name="removefav">Personaje retirado como favorito</string>
+
+    //FavoriteFragment.kt
+    <string name="favcharactertitle">Personaje favorito</string>
+    <string name="favcharacter1">Personaje favorito</string>
+    <string name="favdescript1">Aquí aparecerá tu personaje favorito seleccionado.</string>
+    <string name="episodes">Episodios</string>
+    <string name="location1">Localización</string>
+    <string name="spice">Especie</string>
+    <string name="gender">Género</string>
+    <string name="state">Estado</string>
+    <string name="episodedescript">Aquí se hace un recuento de todos los episodios que sale </string> //This found for DetailFragment.kt
+    <string name="ubicationstring">Aquí aparece la última ubicación de </string> //This found for DetailFragment.kt
+    <string name="spicedescript">Aquí aparece el tipo de especie de </string> //This found for DetailFragment.kt
+    <string name="genderdescript">Aqui aparece el género de </string> //This found for DetailFragment.kt
+    <string name="statedescript">Aquí aparece el estado de </string> //This found for DetailFragment.kt
+
+    //EditProfileFragment.kt
+    <string name="edittitle">Personalizar</string>
+    <string name="editdescript">Personalizar mi perfil</string>
+    <string name="customtitle">Editar tus datos personales</string>
+    <string name="customdescript">Cuándo edites tus datos aparecerán en tu perfil.</string>
+
+    //DetailsFragment.kt
+    <string name="detaildescript">Detalles del personaje</string>
+    <string name="episodestitle">Episodios</string>
+    <string name="locationdetail">Localización</string>
+    <string name="spicetitle">Especie</string>
+    <string name="gendertitle">Género</string>
+    <string name="statetitle">Estado</string>
+
 </resources>

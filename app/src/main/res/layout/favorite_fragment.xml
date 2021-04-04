@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/iconsize1"
+            android:layout_height="@dimen/iconsize1"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
             android:tint="@color/color2"
@@ -44,9 +44,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotomedium"
-                android:text="Personaje favorito"
+                android:text="@string/favcharactertitle"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/favtitle" />
         </LinearLayout>
     </RelativeLayout>
 
@@ -70,178 +70,178 @@
                 android:layout_height="wrap_content"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Personaje favorito"
+                android:text="@string/favcharacter1"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView26"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular"
-                android:text="Aquí aparecerá tu personaje favorito seleccionado." />
+                android:text="@string/favdescript1" />
 
             <TextView
                 android:id="@+id/textView27"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotomedium"
                 android:textColor="@color/black" />
 
             <View
                 android:id="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
+                android:layout_height="@dimen/viewheight"
+                android:layout_marginTop="@dimen/viewmargin"
+                android:layout_marginBottom="@dimen/viewmargin"
                 android:background="@color/md_grey_100" />
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ivRICK"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="@dimen/imagecharacter"
+                android:layout_height="@dimen/imagecharacter"
                 android:layout_gravity="center_horizontal" />
 
             <TextView
                 android:id="@+id/textView28"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotomedium"
                 android:gravity="center"
                 android:textColor="@color/black"
-                android:textSize="18sp" />
+                android:textSize="@dimen/namecharactersize" />
 
             <TextView
                 android:id="@+id/textView29"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/bigmargintop"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Episodios"
+                android:text="@string/episodes"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView30"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular" />
 
             <TextView
                 android:id="@+id/textView31"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="@dimen/resultsizefav" />
 
             <TextView
                 android:id="@+id/textView32"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/bigmargintop"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Localización"
+                android:text="@string/location1"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView33"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular" />
 
             <TextView
                 android:id="@+id/textView38"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="@dimen/resultsizefav" />
 
             <TextView
                 android:id="@+id/textView43"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/bigmargintop"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Especie"
+                android:text="@string/spice"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView44"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular" />
 
             <TextView
                 android:id="@+id/textView48"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="@dimen/resultsizefav" />
 
             <TextView
                 android:id="@+id/textView49"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/bigmargintop"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Género"
+                android:text="@string/gender"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView59"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular" />
 
             <TextView
                 android:id="@+id/textView60"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="@dimen/resultsizefav" />
 
             <TextView
                 android:id="@+id/textView61"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/bigmargintop"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Estado"
+                android:text="@string/state"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView62"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular" />
 
             <TextView
                 android:id="@+id/textView63"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/marginsmall"
                 android:fontFamily="@font/robotoregular"
                 android:textColor="@color/black"
-                android:textSize="15sp" />
+                android:textSize="@dimen/resultsizefav" />
 
         </LinearLayout>
     </ScrollView>

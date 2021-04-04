@@ -8,8 +8,8 @@
     tools:context=".splash_screen.ui.SplashScreen">
 
     <de.hdodenhof.circleimageview.CircleImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="@dimen/splashlogoimg"
+        android:layout_height="@dimen/splashlogoimg"
         android:src="@mipmap/ic_launcher"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

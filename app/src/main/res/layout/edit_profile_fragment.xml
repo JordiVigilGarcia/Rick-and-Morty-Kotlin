@@ -15,8 +15,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/iconsize"
+            android:layout_height="@dimen/iconsize"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
             android:tint="@color/color2"
@@ -38,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Personalizar"
+                android:text="@string/edittitle"
                 android:textColor="@color/color1" />
 
             <TextView
@@ -46,15 +46,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/robotomedium"
-                android:text="Personalizar mi perfil"
+                android:text="@string/editdescript"
                 android:textColor="@color/black"
-                android:textSize="16sp" />
+                android:textSize="@dimen/edittitle" />
         </LinearLayout>
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="@dimen/iconsize"
+            android:layout_height="@dimen/iconsize"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
@@ -79,52 +79,49 @@
                 android:id="@+id/textView9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/topmargin"
                 android:background="@color/coloripple"
                 android:fontFamily="@font/robotomedium"
-                android:text="Editar tus datos personales"
+                android:text="@string/customtitle"
                 android:textColor="@color/color1" />
 
             <TextView
                 android:id="@+id/textView10"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/topmargin1"
                 android:fontFamily="@font/robotoregular"
-                android:text="Cuándo edites tus datos aparecerán en tu perfil." />
+                android:text="@string/customdescript" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="@dimen/edittextmargin"
                 android:backgroundTint="@color/color1"
                 android:ems="10"
                 android:hint="@string/hintname"
-                android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/edittextmargin"
                 android:backgroundTint="@color/color1"
                 android:ems="10"
                 android:hint="@string/hinusername"
-                android:inputType="textPersonName"
-                android:textSize="14sp" />
+                android:inputType="textPersonName" />
 
             <EditText
                 android:id="@+id/editTextTextPersonName3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="@dimen/edittextmargin"
                 android:backgroundTint="@color/color1"
                 android:ems="10"
                 android:hint="@string/hindescript"
-                android:inputType="textMultiLine"
-                android:textSize="14sp" />
+                android:inputType="textMultiLine" />
         </LinearLayout>
     </ScrollView>
 

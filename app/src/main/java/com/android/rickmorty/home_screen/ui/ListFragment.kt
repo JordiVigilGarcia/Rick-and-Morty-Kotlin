@@ -58,6 +58,14 @@ class ListFragment : BaseFragment(), CellClickListener {
             }
         })
 
+        viewModel.isLoading.observe(viewLifecycleOwner, Observer {
+            if (it){
+                binding.progressBar.visibility = View.VISIBLE
+            }else{
+                binding.progressBar.visibility = View.GONE
+            }
+        })
+
         initList()
 
         initFavIMG()
@@ -69,9 +77,6 @@ class ListFragment : BaseFragment(), CellClickListener {
             adapter = CharactersAdapter(it, this, this, presenter, this)
             binding.itemGrid.adapter = adapter
         })
-
-        //OnClickListener Item
-
 
     }
 
@@ -102,6 +107,5 @@ class ListFragment : BaseFragment(), CellClickListener {
         sharedModel.setCharacter(rickMorty)
         findNavController().navigate(R.id.action_homeFragment_to_detailFragment)
     }
-
 
 }

@@ -94,8 +94,9 @@ class ProfileFragment : BaseFragment() {
                     binding.textView20.text = rickmorty[it].name
                     binding.textView21.text = rickmorty[it].species
                     binding.textView22.text = rickmorty[it].gender
+                    binding.textView3.text = rickmorty[it].name
 
-                    val string = "Localización: "
+                    val string = context?.resources?.getString(R.string.location)
                     val string1 = rickmorty[it].location.name
 
                     val spannableString = SpannableString(string + string1)
@@ -105,13 +106,17 @@ class ProfileFragment : BaseFragment() {
                     val backgroundSpan = BackgroundColorSpan(resources.getColor(
                         R.color.coloripple))
 
-                    spannableString.setSpan(foregroundSpan, 0, string.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-                    spannableString.setSpan(
-                        backgroundSpan,
-                        string.length,
-                        string.length+string1.length,
-                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                    )
+                    if (string != null) {
+                        spannableString.setSpan(foregroundSpan, 0, string.length, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+                    }
+                    if (string != null) {
+                        spannableString.setSpan(
+                            backgroundSpan,
+                            string.length,
+                            string.length+string1.length,
+                            Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                        )
+                    }
                     binding.textView23.text = spannableString
 
                     activity?.let { it1 ->
@@ -127,7 +132,7 @@ class ProfileFragment : BaseFragment() {
         binding.imageView7.setOnClickListener(object : View.OnClickListener{
             override fun onClick(p0: View?) {
                 presenter.setFavCharacter(-1)
-                Snackbar.make(binding.constraintProfile, "Personaje retirado como favorito", Snackbar.LENGTH_LONG)
+                Snackbar.make(binding.constraintProfile, R.string.removefav, Snackbar.LENGTH_LONG)
                     .show()
             }
         })

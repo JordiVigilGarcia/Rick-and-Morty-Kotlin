@@ -17,8 +17,7 @@ private val retrofit = Retrofit.Builder()
 interface RickAndMortyApiService {
 
     @GET("character")
-    suspend fun getData():
-            Response<DataRickAndMorty>
+    suspend fun getData(): Response<DataRickAndMorty>
 }
 
 object RickAndMortyApi {

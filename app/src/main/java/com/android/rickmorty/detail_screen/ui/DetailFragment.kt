@@ -50,23 +50,23 @@ class DetailFragment: BaseFragment() {
 
             binding.textView39.text = rickmorty.name
 
-            binding.textView41.text = "Aquí se hace un recuento de todos los episodios que sale " + rickmorty.name
+            binding.textView41.text = context?.resources?.getString(R.string.episodedescript) + rickmorty.name
 
             binding.textView42.text = rickmorty.episode.size.toString()
 
-            binding.textView46.text = "Aquí aparece la última ubicación de " + rickmorty.name
+            binding.textView46.text = context?.resources?.getString(R.string.ubicationstring) + rickmorty.name
 
             binding.textView47.text = rickmorty.location.name
 
-            binding.textView51.text = "Aquí aparece el tipo de especie de " + rickmorty.name
+            binding.textView51.text = context?.resources?.getString(R.string.spicedescript) + rickmorty.name
 
             binding.textView52.text = rickmorty.species
 
-            binding.textView54.text = "Aqui aparece el género de " + rickmorty.name
+            binding.textView54.text = context?.resources?.getString(R.string.genderdescript) + rickmorty.name
 
             binding.textView55.text = rickmorty.gender
 
-            binding.textView57.text = "Aquí aparece el estado de " + rickmorty.name
+            binding.textView57.text = context?.resources?.getString(R.string.statedescript) + rickmorty.name
 
             binding.textView58.text = rickmorty.status
 
