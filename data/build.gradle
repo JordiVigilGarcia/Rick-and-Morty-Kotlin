@@ -29,20 +29,6 @@ android {
         }
     }
 
-    flavorDimensions "default" //Mandatory
-
-
-    productFlavors {
-        mock {
-            buildConfigField "String", "BaseURL", '"https://www.google.com"'
-            buildConfigField "boolean", "mock", "true"
-        }
-        pro {
-            buildConfigField "String", "BaseURL", '"https://code-challenge-e9f47.web.app"'
-            buildConfigField "boolean", "mock", "false"
-        }
-    }
-
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

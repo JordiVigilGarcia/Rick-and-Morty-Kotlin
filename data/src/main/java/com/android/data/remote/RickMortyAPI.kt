@@ -1,27 +1,25 @@
 package com.android.data.remote
 
-import com.android.data.models.RickMorty
+import com.android.data.commons.Constants.BASE_API_RICK_MORTY
+import com.android.data.commons.Constants.BASE_API_SERVICE_RICK_MORTY
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.Query
-
-private const val BASE_URL = "https://rickandmortyapi.com/api/"
 
 private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
-    .baseUrl(BASE_URL)
+    .baseUrl(BASE_API_RICK_MORTY)
     .build()
 
-interface RickAndMortyApiService {
+interface RickMortyAPIService {
 
-    @GET("character")
-    suspend fun getData(): Response<DataRickAndMorty>
+    @GET(BASE_API_SERVICE_RICK_MORTY)
+    suspend fun getData(): Response<APIResults>
 }
 
-object RickAndMortyApi {
-    val retrofitService : RickAndMortyApiService by lazy {
-        retrofit.create(RickAndMortyApiService::class.java)
+object RickMortyAPI {
+    val retrofitService : RickMortyAPIService by lazy {
+        retrofit.create(RickMortyAPIService::class.java)
     }
 }

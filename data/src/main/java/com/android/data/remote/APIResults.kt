@@ -8,7 +8,6 @@ import kotlinx.android.parcel.RawValue
 
 
 @Parcelize
-data class DataRickAndMorty(
-    val info: @RawValue Info,
+data class APIResults(
     val results: ArrayList<RickMorty>
 ) : Parcelable

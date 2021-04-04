@@ -3,12 +3,9 @@ package com.android.data.repository
 import android.content.Context
 import com.android.data.commons.BaseRepository
 import com.android.data.commons.Constants
-import com.android.data.models.RickMorty
-import com.android.data.remote.ResultHandler
-import com.android.data.remote.RickAndMortyApiService
 
 
-class RickMortyRepository(private val context: Context, private val api: RickAndMortyApiService) :
+class RickMortyRepository(private val context: Context) :
     BaseRepository() {
 
     fun getFavCharacter(): Int {

@@ -5,7 +5,6 @@ import kotlinx.android.parcel.Parcelize
 
 
 @Parcelize
-data class Data(
-    val name: String,
-    val url: String
+data class LocationName(
+    val name: String
 ) : Parcelable

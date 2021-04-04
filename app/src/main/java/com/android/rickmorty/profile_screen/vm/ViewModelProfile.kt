@@ -3,8 +3,6 @@ package com.android.rickmorty.profile_screen.vm
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.android.data.models.RickMorty
-import com.android.data.remote.RickAndMortyApi
 import com.android.data.repository.RickMortyRepository
 import com.android.rickmorty.commons.BaseViewModel
 import kotlinx.coroutines.Dispatchers

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.android.data.models.RickMorty
-import com.android.data.remote.RickAndMortyApi
+import com.android.data.remote.RickMortyAPI
 import com.android.rickmorty.commons.BaseViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -37,7 +37,7 @@ class ViewModelCharacters: BaseViewModel() {
     private suspend fun getData() {
         _isLoading.value = true
         try {
-            val response = RickAndMortyApi.retrofitService.getData()
+            val response = RickMortyAPI.retrofitService.getData()
             if (response.isSuccessful) {
                 val dataRickAndMorty = response.body()
                 if (dataRickAndMorty!!.results!!.isNotEmpty()) {
