@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    //-->Base Dimens
+    <dimen name="modelmargin">8dp</dimen>
+
+    //-->Character Model -- character_model
+    <dimen name="imagesize">65dp</dimen>
+    <dimen name="namesize">16dp</dimen>
+    <dimen name="favsize">65dp</dimen>
+    <dimen name="linespace">1.5dp</dimen>
+
+    //-->Detail Fragment -- detail_fragment
+    <dimen name="returnsize">24dp</dimen>
+    <dimen name="titlesize">16dp</dimen>
+    <dimen name="detailsize">75dp</dimen>
+    <dimen name="detailnamesize">20dp</dimen>
+    <dimen name="bigmargin">20dp</dimen>
+    <dimen name="margintop">10dp</dimen>
+    <dimen name="resultsize">14dp</dimen>
+
+    //-->Edit Profile Fragment -- edit_profile_fragment
+    <dimen name="iconsize">24dp</dimen>
+    <dimen name="edittitle">18dp</dimen>
+    <dimen name="topmargin">10dp</dimen>
+    <dimen name="topmargin1">5dp</dimen>
+    <dimen name="edittextmargin">10dp</dimen>
+
+    //-->Favorite Fragment -- favorite_fragment
+    <dimen name="iconsize1">24dp</dimen>
+    <dimen name="favtitle">18dp</dimen>
+    <dimen name="marginsmall">5dp</dimen>
+    <dimen name="imagecharacter">65dp</dimen>
+    <dimen name="viewheight">1dp</dimen>
+    <dimen name="viewmargin">10dp</dimen>
+    <dimen name="namecharactersize">18dp</dimen>
+    <dimen name="bigmargintop">15dp</dimen>
+    <dimen name="resultsizefav">14dp</dimen>
+
+    //-->Splash Screen -- splash_screen
+    <dimen name="splashlogoimg">90dp</dimen>
+
+    //-->List Fragment -- list_fragment
+    <dimen name="listtitle">16dp</dimen>
+    <dimen name="listiconsize">24dp</dimen>
+    <dimen name="marginicons">5dp</dimen>
+
+
+
+</resources>

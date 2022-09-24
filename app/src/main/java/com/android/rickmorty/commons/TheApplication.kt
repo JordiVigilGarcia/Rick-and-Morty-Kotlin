@@ -2,7 +2,6 @@ package com.android.rickmorty.commons
 
 import android.app.Application
 import com.android.data.di.dataModule
-import com.android.data.models.RickMorty
 import com.android.rickmorty.detail_screen.vm.ViewModelShared
 import com.android.rickmorty.profile_screen.vm.ViewModelProfile
 import org.koin.android.ext.koin.androidContext

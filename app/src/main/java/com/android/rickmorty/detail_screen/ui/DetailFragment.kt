@@ -44,7 +44,7 @@ class DetailFragment: BaseFragment() {
 
         //Retrieve Shared Character
 
-        val sharedCharacter = viewModel.shared.value
+        val sharedCharacter = viewModel.rickmorty.value
         sharedCharacter?.let {rickmorty ->
             binding.textView36.text = rickmorty.name
 

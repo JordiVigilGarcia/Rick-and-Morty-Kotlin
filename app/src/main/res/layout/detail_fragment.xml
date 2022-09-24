@@ -20,7 +20,7 @@
             android:layout_height="@dimen/returnsize"
             android:layout_centerVertical="true"
             android:scaleType="centerInside"
-            android:tint="@color/color2"
+            app:tint="@color/color2"
             app:srcCompat="@drawable/abc_vector_test" />
 
         <LinearLayout
